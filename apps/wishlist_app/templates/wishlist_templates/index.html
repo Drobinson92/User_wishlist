@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Hello, {{ name }}</h1>
+    <button><a href='/lr_app/logout'>Log Out</a></button>
+    <h2>Your Wish List</h2>
+    <table>
+        <thead>
+            <th>Item</th>
+            <th>Added By</th>
+            <th>Date Added</th>
+            <th>Action</th>
+        </thead>
+        <tbody>
+            {% for item in my_wishlist %}
+            <tr>
+                <td><a href='/wishlist_app/display/{{item.id}}'>{{ item.item }}</a></td>
+                <td>{{ item.contributor.name }}</td>
+                <td>{{ item.created_at.date }}</td>
+                <td><a href='/wishlist_app/wishlist_remove/{{item.id}}'>Remove from my Wishlist</a></td>
+            </tr>
+            {% endfor %}
+            {% for item in my_items %}
+            <tr>
+                <td><a href='/wishlist_app/display/{{item.id}}'>{{ item.item }}</a></td>
+                <td>{{ item.contributor.name }}</td>
+                <td>{{ item.created_at.date }}</td>
+                <td><a href='/wishlist_app/wishlist_delete/{{item.id}}'>Delete</a></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <h2>Other Users' Wish List</h2>
+    <table>
+        <thead>
+            <th>Item</th>
+            <th>Added By</th>
+            <th>Date Added</th>
+            <th>Action</th>
+        </thead>
+        <tbody>
+            {% for item in other_items %}
+            <tr>
+                <td><a href='/wishlist_app/display/{{item.id}}'>{{ item.item }}</a></td>
+                <td>{{ item.contributor.name }}</td>
+                <td>{{ item.created_at.date }}</td>
+                <td><a href='/wishlist_app/wishlist_add/{{item.id}}'>Add to my Wishlist</a></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+
+
+
+
+
+
+
+
+
+
+
+    <button><a href='/wishlist_app/add'>Add Item</a></button>
+</body>
+</html>

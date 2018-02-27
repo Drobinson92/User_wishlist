@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <h1>{{ item }}</h1>  <button><a href='/wishlist_app/'>Home</a></button><button><a href='/lr_app/logout'>Log Out</a></button>
+
+    <h3>Users who added this product/item under their wish list:</h3>
+    {% for person in people_interested %}
+    <p>{{ person.name }}</p>
+    {% endfor %}
+
+</body>
+</html>
